@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Contador de Vogais</title>
+</head>
+<body>
+  <h1>Contador de Vogais</h1>
+  <form id="vowelCounterForm">
+    <label for="palavraInput">Digite uma palavra:</label>
+    <input type="text" id="palavraInput" name="palavra">
+    <button type="button" id="contarButton">Contar</button>
+  </form>
+  <p id="resultado"></p>
+
+  <script>
+    // Função para contar as vogais usando o TypeScript
+    function contarVogais(palavra) {
+      const vogais = ["a", "á", "â", "à", "ã", "ä", "å",
+                      "e", "é", "ê", "è", "ẽ", "ë", 
+                      "i", "í", "î", "ì", "ĩ", "ï", 
+                      "o", "ó", "ô", "ò", "õ", "ö", 
+                      "u", "ú", "û", "ù", "ũ", "ü"];
+  
+      let quantidade = 0;
+      const palavraMinuscula = palavra.toLowerCase();
+  
+      for (let i = 0; i < palavraMinuscula.length; i++) {
+        if (vogais.includes(palavraMinuscula[i])) {
+          quantidade++;
+        }
+      }
+  
+      return quantidade;
+    }
+
+    document.getElementById("contarButton").addEventListener("click", function() {
+      const palavra = document.getElementById("palavraInput").value;
+      const quantidadeVogais = contarVogais(palavra);
+      document.getElementById("resultado").innerHTML = `Palavra: "${palavra}"<br>Quantidade de vogais: ${quantidadeVogais}`;
+    });
+  </script>
+</body>
+</html>
