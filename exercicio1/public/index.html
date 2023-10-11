@@ -16,17 +16,13 @@
   <script>
     // Função para contar as vogais usando o TypeScript
     function contarVogais(palavra) {
-      const vogais = ["a", "á", "â", "à", "ã", "ä", "å",
-                      "e", "é", "ê", "è", "ẽ", "ë", 
-                      "i", "í", "î", "ì", "ĩ", "ï", 
-                      "o", "ó", "ô", "ò", "õ", "ö", 
-                      "u", "ú", "û", "ù", "ũ", "ü"];
+      const vogais = /[aeiouáàâãåéêíóôõúü]/i;
   
       let quantidade = 0;
       const palavraMinuscula = palavra.toLowerCase();
   
       for (let i = 0; i < palavraMinuscula.length; i++) {
-        if (vogais.includes(palavraMinuscula[i])) {
+        if (vogais.test(palavraMinuscula[i])) {
           quantidade++;
         }
       }
