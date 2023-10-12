@@ -1,20 +1,28 @@
 "use strict";
 function contarVogais(palavra) {
-    const vogais = ["a", "á", "â", "à", "ã", "ä", "å",
-        "e", "é", "ê", "è", "ẽ", "ë",
-        "i", "í", "î", "ì", "ĩ", "ï",
-        "o", "ó", "ô", "ò", "õ", "ö",
-        "u", "ú", "û", "ù", "ũ", "ü"];
+    const vogaisRegex = /[aeiouáàâãåéêíóôõúü]/i;
     let quantidade = 0;
     const palavraMinuscula = palavra.toLowerCase();
     for (let i = 0; i < palavraMinuscula.length; i++) {
-        if (vogais.includes(palavraMinuscula[i])) {
+        if (vogaisRegex.test(palavraMinuscula[i])) {
             quantidade++;
         }
     }
     return quantidade;
 }
-const palavra = "Nordvästersjökustartilleriflygspaningssimulatoranläggningsmaterielunderhållsuppföljningssystemdiskussionsinläggsförberedelsearbeten";
-const quantidadeVogais = contarVogais(palavra);
-console.log(`A palavra "${palavra}" contém ${quantidadeVogais} vogais.`);
+const palavraExemplo = "Chihuahua";
+const quantidadeVogaisExemplo = contarVogais(palavraExemplo);
+console.log(`A palavra "${palavraExemplo}" contém ${quantidadeVogaisExemplo} vogais.`);
+function processarFormulario(event) {
+    event.preventDefault();
+    const palavraInput = document.getElementById("palavraInput");
+    const resultado = document.getElementById("resultado");
+    const palavra = palavraInput.value;
+    const quantidadeVogais = contarVogais(palavra);
+    resultado.innerHTML = `Palavra: "${palavra}"<br>Quantidade de vogais: ${quantidadeVogais}`;
+}
+document.addEventListener("DOMContentLoaded", function () {
+    const vowelCounterForm = document.getElementById("vowelCounterForm");
+    vowelCounterForm.addEventListener("submit", processarFormulario);
+});
 //# sourceMappingURL=exercicio1.js.map
