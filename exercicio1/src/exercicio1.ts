@@ -23,10 +23,31 @@ function contarVogais(palavra: string): number {
   return quantidade;  
 }
 
-const palavra: string = "Nordvästersjökustartilleriflygspaningssimulatoranläggningsmaterielunderhållsuppföljningssystemdiskussionsinläggsförberedelsearbeten";
+// Exemplo de uso da função
+
+const palavraExemplo: string = "Chihuahua";
 
 // Chama a função contarVogais para contar as vogais na palavraExemplo.
-const quantidadeVogais: number = contarVogais(palavra);
+const quantidadeVogaisExemplo: number = contarVogais(palavraExemplo);
 
 // Exibe o resultado da contagem de vogais.
-console.log(`A palavra "${palavra}" contém ${quantidadeVogais} vogais.`);
+console.log(`A palavra "${palavraExemplo}" contém ${quantidadeVogaisExemplo} vogais.`);
+
+// Função para processar o formulário
+function processarFormulario(event: Event) {
+  event.preventDefault(); // Evita que o formulário seja enviado
+
+  const palavraInput = document.getElementById("palavraInput") as HTMLInputElement;
+  const resultado = document.getElementById("resultado")!;
+
+  const palavra = palavraInput.value;
+  const quantidadeVogais = contarVogais(palavra);
+
+  resultado.innerHTML = `Palavra: "${palavra}"<br>Quantidade de vogais: ${quantidadeVogais}`;
+}
+
+// Aguarde o carregamento do DOM antes de executar o código
+document.addEventListener("DOMContentLoaded", function () {
+  const vowelCounterForm = document.getElementById("vowelCounterForm")!;
+  vowelCounterForm.addEventListener("submit", processarFormulario);
+});
