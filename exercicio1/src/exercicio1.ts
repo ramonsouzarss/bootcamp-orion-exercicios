@@ -13,7 +13,7 @@ function contarVogais(palavra: string): number {
   for (let i = 0; i < palavraMinuscula.length; i++) {
 
     // Verifica se o caractere é uma vogal.
-    if (vogaisRegex.includes(palavraMinuscula[i])) {
+    if (vogaisRegex.test(palavraMinuscula[i])) {
 
       // Incrementa a variável de quantidade.
       quantidade++;
