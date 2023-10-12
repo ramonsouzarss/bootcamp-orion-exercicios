@@ -8,33 +8,11 @@
   <h1>Contador de Vogais</h1>
   <form id="vowelCounterForm">
     <label for="palavraInput">Digite uma palavra:</label>
-    <input type="text" id="palavraInput" name="palavra">
-    <button type="button" id="contarButton">Contar</button>
+    <input type="text" id="palavraInput" name="palavraInput" required>
+    <button type="submit" id="contarButton">Contar</button>
   </form>
-  <p id="resultado"></p>
+  <div id="resultado"></div>
 
-  <script>
-    // Função para contar as vogais usando o TypeScript
-    function contarVogais(palavra) {
-      const vogais = /[aeiouáàâãåéêíóôõúü]/i;
-  
-      let quantidade = 0;
-      const palavraMinuscula = palavra.toLowerCase();
-  
-      for (let i = 0; i < palavraMinuscula.length; i++) {
-        if (vogais.test(palavraMinuscula[i])) {
-          quantidade++;
-        }
-      }
-  
-      return quantidade;
-    }
-
-    document.getElementById("contarButton").addEventListener("click", function() {
-      const palavra = document.getElementById("palavraInput").value;
-      const quantidadeVogais = contarVogais(palavra);
-      document.getElementById("resultado").innerHTML = `Palavra: "${palavra}"<br>Quantidade de vogais: ${quantidadeVogais}`;
-    });
-  </script>
-</body>
+  <script src="file:///C:/Users/Usu%C3%A1rio/Desktop/bootcamp-orion/exercicio1/dist/exercicio1.js"></script>
+</body> 
 </html>
