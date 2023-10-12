@@ -46,7 +46,7 @@ function processarFormulario(event: Event) {
   resultado.innerHTML = `Palavra: "${palavra}"<br>Quantidade de vogais: ${quantidadeVogais}`;
 }
 
-// Aguarde o carregamento do DOM antes de executar o código
+// Carregamento do DOM antes de executar o código
 document.addEventListener("DOMContentLoaded", function () {
   const vowelCounterForm = document.getElementById("vowelCounterForm")!;
   vowelCounterForm.addEventListener("submit", processarFormulario);
