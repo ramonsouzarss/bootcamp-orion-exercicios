@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Respostas Exercícios</title>
+</head>
+<body>
+  <h1>Contador de Vogais</h1>
+  <form id="vowelCounterForm">
+    <label for="palavraInput">Digite uma palavra:</label>
+    <input type="text" id="palavraInput" name="palavraInput" required>
+    <button type="submit" id="contarButton">Contar</button>
+  </form>
+  <div id="resultado"></div>
+
+  <script src="file:///C:/Users/Usu%C3%A1rio/Desktop/bootcamp-orion/exercicio3/dist/exercicio3.js"></script>
+  
+  <h3>Função em Typescript</h3>
+  <h4>Conta vogais de uma palvra</h4>
+  <pre class="prettyprint">
+    <code class="language-js">
+      // Função para contar as vogais
+      function contarVogais(palavra: string): number {
+          const vogaisRegex: RegExp = /[aeiouáàâãåéêíóôõúü]/i;
+        
+          let quantidade: number = 0;
+          const palavraMinuscula: string = palavra.toLowerCase();
+        
+          for (let i = 0; i < palavraMinuscula.length; i++) {
+            if (vogaisRegex.test(palavraMinuscula[i])) {
+              quantidade++;
+            }
+          }
+        
+          return quantidade;
+        }
+        
+        // Exemplo de uso da função
+        
+        const palavraExemplo: string = "Chihuahua";
+        
+        // Chama a função contarVogais para contar as vogais na palavraExemplo
+        const quantidadeVogaisExemplo: number = contarVogais(palavraExemplo);
+        
+        // Exibe o resultado da contagem de vogais
+        console.log(`A palavra "${palavraExemplo}" contém ${quantidadeVogaisExemplo} vogais.`);
+    </code>
+  </pre>
+  <h3>Funções em Typescript: Paradigma Funcional e Imperativo (Array)</h3>
+  <h4>Funções que iteram sobre um array </h4>
+  <pre class="prettyprint" style="white-space: pre-wrap;">
+    <code>
+        interface Pessoa {
+            id: number;
+            name: string;
+            bio: string;
+          }
+          
+          const lista: Pessoa[] = [
+            {"id": 1, "name": "Ada Lovelace", "bio": "Ada Lovelace, foi uma matemática e escritora inglesa reconhecida por ter escrito o primeiro algoritmo para ser processado por <div style="margin-left: 86px;">uma máquina"},</div>
+            {"id": 2, "name": "Alan Turing", "bio": "Alan Turing foi um matemático, cientista da computação, lógico, criptoanalista, filósofo e biólogo teórico britânico, ele é <div style="margin-left: 86px;">amplamente considerado o pai da ciência da computação teórica e da inteligência artificial"},</div>
+            {"id": 3, "name": "Nikola Tesla", "bio": "Nikola Tesla foi um inventor, engenheiro eletrotécnico e engenheiro mecânico sérvio, mais conhecido por suas contribuições ao <div style="margin-left: 86px;">projeto do moderno sistema de fornecimento de eletricidade em corrente alternada."},</div>
+            {"id": 4, "name": "Nicolau Copérnico", "bio": "Nicolau Copérnico foi um astrônomo e matemático polonês que desenvolveu a teoria heliocêntrica do Sistema Solar"}
+            <div style="margin-left: 86px;">];</div>
+        
+        
+        // Retorna a bio do id passado:  
+          
+          // Funcional
+          const retornaBioPorIdFuncional = (id: number): string | undefined => {
+            const pessoaEncontrada = lista.find(pessoa => pessoa.id === id);
+            return pessoaEncontrada?.bio;
+          };
+        
+          // Imperativo
+          function retornaBioPorIdImperativo(id: number): string | undefined {
+            for (const pessoa of lista) {
+              if (pessoa.id === id) {
+                return pessoa.bio;
+              }
+            }
+            return undefined;
+          }
+          
+        
+        // Retorna o nome do id passado:
+          
+          // Funcional
+          const retornaNamePorId = (id: number): string | undefined => {
+            const pessoaEncontrada = lista.find(pessoa => pessoa.id === id);
+            return pessoaEncontrada?.name;
+          };
+        
+          // Imperativo
+          function retornaNamePorIdImperativo(id: number): string | undefined {
+            for (const pessoa of lista) {
+              if (pessoa.id === id) {
+                return pessoa.name;
+              }
+            }
+            return undefined;
+          }
+        
+        
+        // Apaga um item da lista a partir do id passado :  
+        
+          // Funcional
+          const apagaItemPorId = (id: number): void => {
+            const indice = lista.findIndex(pessoa => pessoa.id === id);
+            if (indice !== -1) {
+              lista.splice(indice, 1);
+            }
+          };
+        
+          // Imperativo
+          function apagaItemPorIdImperativo(id: number): void {
+            for (let i = 0; i < lista.length; i++) {
+              if (lista[i].id === id) {
+                lista.splice(i, 1);
+                break;
+              }
+            }
+          }
+          
+        
+        // Altera a bio ou o nome a partir do id passado:
+        
+          // Funcional
+          const alteraBioOuNamePorId = (id: number, novoValor: string, campo: "bio" | "name"): void => {
+            const pessoaEncontrada = lista.find(pessoa => pessoa.id === id);
+            if (pessoaEncontrada) {
+              pessoaEncontrada[campo] = novoValor;
+            }
+          };
+        
+          // Imperativo
+          function alteraBioOuNamePorIdImperativo(id: number, novoValor: string, campo: "bio" | "name"): void {
+            for (const pessoa of lista) {
+              if (pessoa.id === id) {
+                pessoa[campo] = novoValor;
+                break;
+              }
+            }
+          }
+      </code>
+    </pre>
+</body>
+<script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+</html>
